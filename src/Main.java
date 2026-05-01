@@ -1,20 +1,45 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
 
-        Account acc = new Account("Duygu", 1000);
+        Scanner scanner = new Scanner(System.in);
 
-        acc.printAccount();
+        Account account = new Account("Duygu", 1000);
 
-        System.out.println("----- Deposit 500 -----");
-        acc.deposit(500);
-        acc.printAccount();
+        while (true) {
+            System.out.println("\n--- Simple Banking System ---");
+            System.out.println("1. Deposit");
+            System.out.println("2. Withdraw");
+            System.out.println("3. Show Account");
+            System.out.println("4. Exit");
 
-        System.out.println("----- Withdraw 300 -----");
-        acc.withdraw(300);
-        acc.printAccount();
+            System.out.print("Choose an option: ");
+            int choice = scanner.nextInt();
 
-        System.out.println("----- Withdraw 2000 -----");
-        acc.withdraw(2000);
-        acc.printAccount();
+            if (choice == 1) {
+                System.out.print("Enter deposit amount: ");
+                double amount = scanner.nextDouble();
+                account.deposit(amount);
+                System.out.println("Money deposited successfully.");
+
+            } else if (choice == 2) {
+                System.out.print("Enter withdraw amount: ");
+                double amount = scanner.nextDouble();
+                account.withdraw(amount);
+
+            } else if (choice == 3) {
+                account.printAccount();
+
+            } else if (choice == 4) {
+                System.out.println("Goodbye!");
+                break;
+
+            } else {
+                System.out.println("Invalid option!");
+            }
+        }
+
+        scanner.close();
     }
 }
