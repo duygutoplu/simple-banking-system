@@ -5,7 +5,11 @@ public class Main {
 
         Scanner scanner = new Scanner(System.in);
 
-        Account account = new Account("Duygu", 1000);
+        // kullanıcıdan isim al
+        System.out.print("Enter your name: ");
+        String name = scanner.nextLine();
+
+        Account account = new Account(name, 1000);
 
         while (true) {
             System.out.println("\n--- Simple Banking System ---");
